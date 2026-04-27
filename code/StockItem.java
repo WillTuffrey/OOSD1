@@ -1,9 +1,4 @@
 package code;
-import java.io.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-
 public class StockItem {
     private String stockCode;
     private int quantityInStock;
