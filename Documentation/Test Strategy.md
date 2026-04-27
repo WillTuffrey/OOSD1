@@ -10,3 +10,8 @@
 
 ## UML Diagram
 
+![StockItem.java(dark)](./images/StockItemClass(dark).png)
+
+![StockItem.java](./images/StockItemClass.png)
+
+*testing with a dark version of the diagrams
