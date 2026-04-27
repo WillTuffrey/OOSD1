@@ -1,22 +1,30 @@
 package code;
-import java.io.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class Main extends JFrame {
-    public static void main(String[] args) {
+public class Main {
+    public static void CarPartFinder() {
         MyFrame frame = new MyFrame();
 
-        JLabel introduction = new JLabel();
-        introduction.setText("Welcome to Car Part Finder!");
-        introduction.setBounds(0, 0, 800, 30);
-        introduction.setForeground(Color.WHITE);
-        introduction.setFont(new Font("MV Boli", Font.PLAIN, 30));
-        frame.add(introduction);
-        
+        MyLabel introductionHeading = new MyLabel(0, 5, frame);
+        introductionHeading.setText("Welcome to Car Part Finder!");
+        introductionHeading.setFont(new Font("MV Boli", Font.PLAIN, 30));
+        frame.add(introductionHeading);
+
+        MyLabel introductionText = new MyLabel(0, 40, frame);
+        introductionText.setText("Some text waffling about the program and how to use it.");
+        frame.add(introductionText);
+
         MyButton button = new MyButton();
-        button.setBounds(200, 100, 250, 50);        
-        button.addActionListener(e -> System.out.println("Button clicked"));
+        button.setText("Configure New Car Part");
+        button.setBounds(225, 100, 250, 50);
+        button.addActionListener(e -> ConfigureCarParts());
         frame.add(button);
+    }
+    public static void ConfigureCarParts() {
+        System.out.println("Button clicked");
+    }
+    public static void main(String[] args) {
+        CarPartFinder();
     }
 }
