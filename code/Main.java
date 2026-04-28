@@ -73,7 +73,7 @@ public class Main {
         });
         frame.add(submitButton);        
     }
-    public static StockItem CreateStockItem() {        
+    public static StockItem CreateStockItem() {
         StockItem stockItem = new StockItem("-1", 0, 0.0);
         return stockItem;
     }
