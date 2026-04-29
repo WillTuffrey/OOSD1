@@ -2,18 +2,20 @@ package code;
 import javax.swing.*;
 import java.awt.*;
 
-public class MyFrame extends JFrame {
-    private int x, y;
-    MyFrame(int X, int Y) {
-        this.x = X;
-        this.y = Y;
-        this.setTitle("Car Part Finder");
+public class CustomFrame extends JFrame {
+    private int width, height;
+    private String title;
+    CustomFrame(int Width, int Height, String Title) {
+        this.width = Width;
+        this.height = Height;
+        this.title = Title;
+        this.setTitle(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-        this.setSize(x, y);
+        this.setSize(width, height);
         this.getContentPane().setBackground(new Color(83, 81, 122));
         this.setResizable(false);
-        this.setLayout(null);
+        // this.setLayout(null);
 
         // ImageIcon image = new ImageIcon("marker_blue.png");
         // frame.setIconImage(image.getImage());
