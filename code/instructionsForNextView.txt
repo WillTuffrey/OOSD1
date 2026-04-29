@@ -1,0 +1,5 @@
+Layer the program with JLayeredPanes
+each pane with a different layout
+plan easy view drawing first
+implement
+Maybe find a better prefix to new classes than "My"
