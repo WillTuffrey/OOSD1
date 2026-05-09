@@ -13,5 +13,5 @@ public class CustomLabel extends JLabel {
         this.setForeground(Color.WHITE);
         this.setFont(new Font("MV Boli", Font.PLAIN, 20));
         this.setBounds(labelx, labely, frame.getWidth(), 30);
-    }    
+    }
 }

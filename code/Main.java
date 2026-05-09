@@ -20,23 +20,26 @@ public class Main {
         menuPanel.add(introductionText);
 
         CustomButton button = new CustomButton(225, 100, 250, 50, "Configure New Car Part");
-        button.addActionListener(e -> menuLayout.show(parentMenuPanel, "GameScreen"));
+        button.addActionListener(e -> menuLayout.show(parentMenuPanel, "ConfigScreen"));
         menuPanel.add(button);
 
 
 
 
 
-        CustomPanel gamePanel = new CustomPanel();
+        CustomPanel configPanel = new CustomPanel();
         CustomButton backButton = new CustomButton(200, 5, 350, 40, "Exit to Menu");
-        gamePanel.add(new CustomLabel(200, 5, "GAME SCREEN", frame));
-        gamePanel.add(backButton);
+
+        configPanel.add(new CustomLabel(200, 5, "Configure Part", frame));
+        configPanel.add(backButton);
+        configPanel.add(new CustomLabel(5, 50, "Enter part details:", frame));
+        // add buttons for config
 
         parentMenuPanel.add(menuPanel, "MenuScreen");
-        parentMenuPanel.add(gamePanel, "GameScreen");
+        parentMenuPanel.add(configPanel, "ConfigScreen");
 
         CustomButton startButton = new CustomButton(200, 5, 350, 40, "Start");
-        startButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "GameScreen"));
+        startButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "ConfigScreen"));
         backButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "MenuScreen"));
 
         frame.add(parentMenuPanel);

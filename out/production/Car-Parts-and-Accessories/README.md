@@ -2,7 +2,7 @@
 Car parts finder program made in Swing Java.
 
 * [Test Strategies](https://github.com/WillTuffrey/Car-Parts-and-Accessories/blob/main/Documentation/Test_Strategy.md)
-* [Diagrams](https://github.com/WillTuffrey/Car-Parts-and-Accessories/blob/main/Documentation/Diagrams.md)
+* [UML Diagram](https://github.com/WillTuffrey/Car-Parts-and-Accessories/blob/main/Documentation/UMLDiagram.md)
 
 Due 14:00 13th May 2026
 
