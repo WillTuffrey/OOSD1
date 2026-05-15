@@ -1,4 +1,5 @@
 package CarStockSystem;
+
 public class StockItem {
     private String stockCode;
     private int quantityInStock;

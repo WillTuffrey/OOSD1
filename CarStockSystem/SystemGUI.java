@@ -1,4 +1,5 @@
 package CarStockSystem;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -27,31 +28,38 @@ public class SystemGUI {
         CardLayout menuLayout = new CardLayout();
         JPanel parentMenuPanel = new JPanel(menuLayout);
 
-        CustomPanel menuPanel = new CustomPanel(new GridLayout(3, 1));
-
         CustomLabel introductionHeading = new CustomLabel(0, 5, "Welcome to Car Part Finder!", frame);
         introductionHeading.setFont(new Font("MV Boli", Font.PLAIN, 30));
-        introductionHeading.setHorizontalAlignment(SwingConstants.CENTER);
-        menuPanel.add(introductionHeading);
+        introductionHeading.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         CustomLabel introductionText = new CustomLabel(0, 40, "Some text waffling about the program and how to use it.", frame);
-        introductionText.setHorizontalAlignment(SwingConstants.CENTER);
-        menuPanel.add(introductionText);
+        introductionText.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         CustomButton button = new CustomButton(225, 100, 250, 50, "Configure New Car Part");
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button.addActionListener(e -> menuLayout.show(parentMenuPanel, "ConfigScreen"));
+
+        CustomPanel menuPanel = new CustomPanel();
+        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+        menuPanel.add(Box.createVerticalStrut(20));
+        menuPanel.add(introductionHeading);
+        menuPanel.add(Box.createVerticalStrut(20));
+        menuPanel.add(introductionText);
+        menuPanel.add(Box.createVerticalStrut(20));
         menuPanel.add(button);
 
+        CustomPanel configPanel = new CustomPanel();
+        configPanel.setLayout(new GridLayout(5, 10));
 
 
+        
 
-        CustomPanel configPanel = new CustomPanel(new FlowLayout());
+
         CustomButton backButton = new CustomButton(200, 5, 350, 40, "Exit to Menu");
 
         configPanel.add(new CustomLabel(200, 5, "Configure Part", frame));
         configPanel.add(backButton);
         configPanel.add(new CustomLabel(5, 50, "Enter part details:", frame));
-        // add buttons for config
 
         parentMenuPanel.add(menuPanel, "MenuScreen");
         parentMenuPanel.add(configPanel, "ConfigScreen");

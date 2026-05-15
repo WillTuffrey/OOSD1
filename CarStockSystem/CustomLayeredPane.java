@@ -1,4 +1,5 @@
 package CarStockSystem;
+
 import javax.swing.*;
 
 public class CustomLayeredPane extends JLayeredPane {
