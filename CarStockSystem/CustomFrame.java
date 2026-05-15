@@ -1,11 +1,11 @@
-package code;
+package CarStockSystem;
 import javax.swing.*;
 import java.awt.*;
 
 public class CustomFrame extends JFrame {
     private int width, height;
     private String title;
-    CustomFrame(int Width, int Height, String Title) {
+    public CustomFrame(int Width, int Height, String Title) {
         this.width = Width;
         this.height = Height;
         this.title = Title;
@@ -15,9 +15,5 @@ public class CustomFrame extends JFrame {
         this.setSize(width, height);
         this.getContentPane().setBackground(new Color(83, 81, 122));
         this.setResizable(false);
-        // this.setLayout(null);
-
-        // ImageIcon image = new ImageIcon("marker_blue.png");
-        // frame.setIconImage(image.getImage());
     }
 }

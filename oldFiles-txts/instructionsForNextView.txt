@@ -18,10 +18,10 @@ CustomFrame f = new CustomFrame(500, 400);
         f.add(heading);
         frame.add(heading);
 
-        CustomLabel code = new CustomLabel(5, 70, f);
-        code.setText("Code:");
-        code.setHorizontalAlignment(SwingConstants.LEFT);
-        f.add(code);
+        CustomLabel CarStockSystem = new CustomLabel(5, 70, f);
+        CarStockSystem.setText("Code:");
+        CarStockSystem.setHorizontalAlignment(SwingConstants.LEFT);
+        f.add(CarStockSystem);
         CustomTextField codeTextField = new CustomTextField();
         codeTextField.setBounds(f.getWidth() / 2 - 125, 70, 250, 40);
         f.add(codeTextField);

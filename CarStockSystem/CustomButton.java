@@ -1,11 +1,11 @@
-package code;
+package CarStockSystem;
 import javax.swing.*;
 import java.awt.*;
 
 public class CustomButton extends JButton {
     private int x, y, width, height;
     private String text;
-    CustomButton(int X, int Y, int Width, int Height, String Text) {
+    public CustomButton(int X, int Y, int Width, int Height, String Text) {
         this.x = X;
         this.y = Y;
         this.width = Width;
@@ -13,7 +13,8 @@ public class CustomButton extends JButton {
         this.text = Text;
         this.setBounds(x, y, width, height);
         this.setText(text);
-        this.setFocusable(false);        
+        this.setFocusable(false);
+        this.setVisible(true);
         this.setFont(new Font("MV Boli", Font.PLAIN, 15));
         this.setForeground(Color.WHITE);
         this.setBackground(new Color(43, 42, 65));
