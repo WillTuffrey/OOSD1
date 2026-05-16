@@ -28,45 +28,54 @@ public class SystemGUI {
         CardLayout menuLayout = new CardLayout();
         JPanel parentMenuPanel = new JPanel(menuLayout);
 
-        CustomLabel introductionHeading = new CustomLabel(0, 5, "Welcome to Car Part Finder!", frame);
-        introductionHeading.setFont(new Font("MV Boli", Font.PLAIN, 30));
-        introductionHeading.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        CustomLabel introductionText = new CustomLabel(0, 40, "Some text waffling about the program and how to use it.", frame);
-        introductionText.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        CustomButton button = new CustomButton(225, 100, 250, 50, "Configure New Car Part");
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.addActionListener(e -> menuLayout.show(parentMenuPanel, "ConfigScreen"));
-
         CustomPanel menuPanel = new CustomPanel();
+
+        CustomLabel introductionHeading = new CustomLabel(0, 5, "Welcome to Car Part Finder!", frame);
+        introductionHeading.setFont(new Font("MV Boli", Font.PLAIN, 40));
+        introductionHeading.setAlignmentX(Component.CENTER_ALIGNMENT);
+        CustomLabel introductionText = new CustomLabel(0, 40, "Click \"View Stock\" to view all available items", frame);
+        introductionText.setAlignmentX(Component.CENTER_ALIGNMENT);
+        CustomButton viewStockButton = new CustomButton(225, 100, 250, 50, "  View Stock   ");
+        viewStockButton.setFont(new Font("MV Boli", Font.PLAIN, 20));
+        viewStockButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        viewStockButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "ConfigScreen"));
+
         menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
         menuPanel.add(Box.createVerticalStrut(20));
         menuPanel.add(introductionHeading);
         menuPanel.add(Box.createVerticalStrut(20));
         menuPanel.add(introductionText);
-        menuPanel.add(Box.createVerticalStrut(20));
-        menuPanel.add(button);
+        menuPanel.add(Box.createVerticalStrut(50));
+        menuPanel.add(viewStockButton);
+
+
+
 
         CustomPanel configPanel = new CustomPanel();
-        configPanel.setLayout(new GridLayout(5, 10));
+        configPanel.setLayout(new GridBagLayout());        //GridLayout(5, 10)
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        CustomButton menuButton = new CustomButton(200, 5, 350, 40, "Exit to Menu");
 
 
-        
+        configPanel.add(menuButton);
 
 
-        CustomButton backButton = new CustomButton(200, 5, 350, 40, "Exit to Menu");
+
+
+
+
+
 
         configPanel.add(new CustomLabel(200, 5, "Configure Part", frame));
-        configPanel.add(backButton);
         configPanel.add(new CustomLabel(5, 50, "Enter part details:", frame));
 
         parentMenuPanel.add(menuPanel, "MenuScreen");
         parentMenuPanel.add(configPanel, "ConfigScreen");
 
-        CustomButton startButton = new CustomButton(200, 5, 350, 40, "Start");
-        startButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "ConfigScreen"));
-        backButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "MenuScreen"));
+        CustomButton configButton = new CustomButton(200, 5, 350, 40, "Start");
+        configButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "ConfigScreen"));
+        menuButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "MenuScreen"));
 
         frame.add(parentMenuPanel);
     }
