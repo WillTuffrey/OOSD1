@@ -27,3 +27,20 @@ to me.
 ![StockItem.java](./images/StockItemClass.png)
 
 *testing with a dark version of the diagrams
+
+## Testing StockItem.java
+
+Test Case table
+
+| Test Case | Purpose | Expected Result | Results reach expections? |
+| --------- | ------- | --------------- | ------------------------- |
+| GUI test |  |  |  |
+| Class test | Check all the methods and attributes for the class work as expected | Shows each itteration of the changing class, and displays exactly what was changed correctly | Yes |
+
+Code used
+
+![StockItem.java test code](./images/TestStockItemCode.png)
+
+Outputted result
+
+![StockItem,java output log](./images/TestStockItemOutput.png)
