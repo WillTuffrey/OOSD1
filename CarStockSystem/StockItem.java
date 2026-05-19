@@ -1,9 +1,9 @@
 package CarStockSystem;
 
 public class StockItem {
-    private String stockCode;
-    private int quantityInStock;
-    private double price;
+    protected String stockCode;
+    protected int quantityInStock;
+    protected double price;
 
     public StockItem(String Code, int Quantity, double Price) {
         stockCode = Code;

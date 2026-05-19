@@ -1,8 +1,8 @@
 # Car Parts and Accessories - Assesment-UFCFC3-30-1
 Car parts finder program made in Swing Java.
 
-* [Test Strategies](https://github.com/WillTuffrey/Car-Parts-and-Accessories/blob/main/Documentation/Test_Strategy.md)
-* [UML Diagram](https://github.com/WillTuffrey/Car-Parts-and-Accessories/blob/main/Documentation/UMLDiagram.md)
+* [Test Strategies](https://github.com/WillTuffrey/OOSD1-Assignment/blob/main/Documentation/Test%20Strategy.md)
+* [UML Diagram](https://github.com/WillTuffrey/OOSD1-Assignment/blob/main/Documentation/UMLDiagram.md)
 
 Due 14:00 13th May 2026
 

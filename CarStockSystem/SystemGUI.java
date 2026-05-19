@@ -123,8 +123,7 @@ public class SystemGUI {
         CustomLabel errorLabel = new CustomLabel(0, frame.getWidth(), errorMessage, frame);
         frame.add(errorLabel);
     }
-    public static void main(String[] args) {
-        //TestStockItem();
+    static void main(String[] args) {
         DesignGUI();
     }
 }
