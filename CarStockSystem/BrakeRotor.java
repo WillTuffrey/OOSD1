@@ -1,7 +1,5 @@
 package CarStockSystem;
 
-import java.util.Set;
-
 public class BrakeRotor extends StockItem {
     protected String brand;
     protected int circumference;

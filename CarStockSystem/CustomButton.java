@@ -31,8 +31,13 @@ public class CustomButton extends JButton {
         this.setBackground(new Color(43, 42, 65));
         this.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         this.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) { CustomButton.this.setBackground(new Color(138, 135, 190)); }
-            public void mouseExited(java.awt.event.MouseEvent evt) { CustomButton.this.setBackground(new Color(43, 42, 65)); }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CustomButton.this.setBackground(new Color(138, 135, 190));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CustomButton.this.setBackground(new Color(43, 42, 65));
+            }
         });
     }
 }

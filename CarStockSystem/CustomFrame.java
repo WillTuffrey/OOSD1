@@ -6,6 +6,7 @@ import java.awt.*;
 public class CustomFrame extends JFrame {
     private int width, height;
     private String title;
+
     public CustomFrame(int Width, int Height, String Title) {
         this.width = Width;
         this.height = Height;
