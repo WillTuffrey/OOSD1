@@ -420,7 +420,7 @@ On press, the button should exit the application with an exit code "0"
 
 Mouse is hovered over "Exit Application" button - colour changes to bright red.
 
-![Exit Application](./images/ExitApplication.png)
+![Exit Application](./images/exitApplication.png)
 
 ![Exit code 0](./images/exitCode0.png)
 
