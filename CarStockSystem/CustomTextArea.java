@@ -12,6 +12,7 @@ public class CustomTextArea extends JTextArea {
         this.columns = Columns;
         this.setRows(rows);
         this.setColumns(columns);
+
         this.setFont(new Font("Helvetica", Font.PLAIN, 16));
         this.setForeground(Color.WHITE);
 

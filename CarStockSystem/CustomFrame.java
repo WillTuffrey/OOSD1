@@ -13,6 +13,7 @@ public class CustomFrame extends JFrame {
         this.title = Title;
         this.setTitle(title);
         this.setSize(width, height);
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(new Color(83, 81, 122));
 

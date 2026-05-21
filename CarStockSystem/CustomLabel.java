@@ -12,16 +12,19 @@ public class CustomLabel extends JLabel {
         this.labely = LabelY;
         this.text = Text;
         this.setBounds(labelx, labely, frame.getWidth(), 30);
+
         MakeLabel();
     }
 
     public CustomLabel (String Text) {
         this.text = Text;
+
         MakeLabel();
     }
 
     public void MakeLabel() {
         this.setText(text);
+
         this.setForeground(Color.WHITE);
         this.setFont(new Font("MV Boli", Font.PLAIN, 20));
 
