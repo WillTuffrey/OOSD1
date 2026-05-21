@@ -11,11 +11,13 @@ public class CustomPanel extends JPanel {
         this.g = G;
         this.b = B;
         this.setBackground(new Color(r, g, b));
+
         this.setVisible(true);
     }
 
     public CustomPanel() {
         this.setBackground(new Color(83, 81, 122));
+
         this.setVisible(true);
     }
 }

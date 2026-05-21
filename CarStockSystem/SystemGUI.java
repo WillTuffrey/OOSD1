@@ -26,16 +26,7 @@ public class SystemGUI {
         CustomFrame frame = new CustomFrame(900, 600, "Car Parts Finder");
 
         StockItem[] stock = new StockItem[4];
-        //stock = InstantiateStock(stock);
-        Tyre tyre = new Tyre("MPSC2", 12, 399, "Michelin", "Pilot Sport Cup 2", 20);
-        Windscreen windscreen = new Windscreen("PWS134", 4, 236, "PILKINGTON", 2.07, true);
-        BrakeRotor brakeRotor = new BrakeRotor("DBR12", 37, 106.99, "DRIVETEC", 265, false);
-        NavSys satNav = new NavSys("NS101",10,99.99);
-
-        stock[0] = tyre;
-        stock[1] = windscreen;
-        stock[2] = brakeRotor;
-        stock[3] = satNav;
+        InstantiateStock(stock);
 
         CardLayout menuLayout = new CardLayout();
         JPanel parentMenuPanel = new JPanel(menuLayout);
@@ -78,7 +69,6 @@ public class SystemGUI {
         menuPanel.add(exitApplication);
 
 
-
         // Stock Panel
         CustomPanel stockPanel = new CustomPanel();
         stockPanel.setLayout(new BorderLayout());
@@ -97,7 +87,7 @@ public class SystemGUI {
         stockPanel.add(stockCenterPanel, BorderLayout.CENTER);
 
         CustomPanel leftSideBar = new CustomPanel(61, 59, 87);
-        leftSideBar.setLayout(new GridLayout(0, 1));  //(new BoxLayout(leftSideBar, BoxLayout.Y_AXIS));
+        leftSideBar.setLayout(new GridLayout(0, 1));
         stockSideBarPanel.add(leftSideBar, BorderLayout.CENTER);
 
         CustomButton menuButton = new CustomButton(" Exit to Menu ");
@@ -113,77 +103,58 @@ public class SystemGUI {
         });
         stockMenuPanel.add(menuButton);
 
-        stockMenuPanel.add(Box.createHorizontalStrut(frame.getWidth() / 2 - 325));
-        menuButton.addActionListener(e -> menuLayout.show(parentMenuPanel, "Menu"));
+        stockMenuPanel.add(Box.createHorizontalStrut(frame.getWidth() / 2 - 265));
+        CustomTextArea infoArea = new CustomTextArea(7, 30);
+        stockCenterPanel.add(infoArea);
+
+        menuButton.addActionListener(e -> {
+            menuLayout.show(parentMenuPanel, "Menu");
+            infoArea.setText("Select an item of stock to configure");
+        });
 
         CustomLabel stockOverview = new CustomLabel("Stock Overview ");
         stockOverview.setFont(new Font("MV Boli", Font.PLAIN, 40));
         stockMenuPanel.add(stockOverview);
+        stockMenuPanel.add(Box.createHorizontalStrut(frame.getWidth() / 2 - 265));
 
-        CustomButton addStock = new CustomButton(" Add Stock ");
-        addStock.setBackground(new Color(10, 108, 16));
-        addStock.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addStock.setBackground(new Color(14, 199, 27));
-            }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                addStock.setBackground(new Color(10, 108, 16));
-            }
-        });
-
-        stockMenuPanel.add(Box.createHorizontalStrut(frame.getWidth() / 2 - 325));
-        stockMenuPanel.add(addStock);
-        addStock.addActionListener(e -> menuLayout.show(parentMenuPanel, "AddStock"));
+        CustomLabel displayPart = new CustomLabel(200, 5, "", frame);
+        displayPart.setFont(new Font("Helvetica", Font.PLAIN, 20));
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.insets = new Insets(10, 10, 10, 10);
+        stockCenterPanel.add(displayPart, gbc);
 
-        CustomLabel configurePart = new CustomLabel(200, 5, "Select an item of stock to configure", frame);
-        stockCenterPanel.add(configurePart, gbc);
+        infoArea.setText("Select an item of stock to configure");
 
         CustomButton stockItem0 = new CustomButton("<html><center>" + stock[0].GetStockName() + "</center></html>");
-        stockItem0.addActionListener(e -> stock[0] = SelectStockItem(stock[0], stockCenterPanel));
+        stockItem0.addActionListener(e -> {
+            stock[0] = ShowStockInformation(stock[0], frame, stockCenterPanel, " ");
+        });
         leftSideBar.add(stockItem0);
 
         CustomButton stockItem1 = new CustomButton("<html><center>" + stock[1].GetStockName() + "</center></html>");
-        stockItem1.addActionListener(e -> stock[1] = SelectStockItem(stock[1], stockCenterPanel));
+        stockItem1.addActionListener(e -> {
+            stock[1] = ShowStockInformation(stock[1], frame, stockCenterPanel, " ");
+        });
         leftSideBar.add(stockItem1);
 
         CustomButton stockItem2 = new CustomButton("<html><center>" + stock[2].GetStockName() + "</center></html>");
-        stockItem2.addActionListener(e -> stock[2] = SelectStockItem(stock[2], stockCenterPanel));
+        stockItem2.addActionListener(e -> {
+            stock[2] = ShowStockInformation(stock[2], frame, stockCenterPanel, " ");
+        });
         leftSideBar.add(stockItem2);
 
         CustomButton stockItem3 = new CustomButton("<html><center>" + stock[3].GetStockName() + "</center></html>");
-        stockItem3.addActionListener(e -> stock[3] = SelectStockItem(stock[3], stockCenterPanel));
+        stockItem3.addActionListener(e -> {
+            stock[3] = ShowStockInformation(stock[3], frame, stockCenterPanel, " ");
+        });
         leftSideBar.add(stockItem3);
-
-
-
-        // Add stock panel
-        CustomPanel configPanel = new CustomPanel();
-        configPanel.setLayout(new BorderLayout());
-
-        CustomPanel configMenuPanel = new CustomPanel();
-        CustomPanel configCenterPanel = new CustomPanel();
-        configCenterPanel.setLayout(new GridBagLayout());
-        configPanel.add(configMenuPanel, BorderLayout.NORTH);
-        configPanel.add(configCenterPanel, BorderLayout.CENTER);
-
-        CustomButton backToConfig = new CustomButton(" Return to Stock ");
-        configMenuPanel.add(backToConfig);
-        backToConfig.addActionListener(e -> menuLayout.show(parentMenuPanel, "ViewStock"));
-
-
-
 
 
         parentMenuPanel.add(menuPanel, "Menu");
         parentMenuPanel.add(stockPanel, "ViewStock");
-        parentMenuPanel.add(configPanel, "AddStock");
         frame.add(parentMenuPanel);
     }
-    public static StockItem[] InstantiateStock(StockItem[] stock) {
+    public static void InstantiateStock(StockItem[] stock) {
         Tyre tyre = new Tyre("MPSC2", 12, 399, "Michelin", "Pilot Sport Cup 2", 20);
         Windscreen windscreen = new Windscreen("PWS134", 4, 236, "PILKINGTON", 2.07, true);
         BrakeRotor brakeRotor = new BrakeRotor("DBR12", 37, 106.99, "DRIVETEC", 265, false);
@@ -193,28 +164,92 @@ public class SystemGUI {
         stock[1] = windscreen;
         stock[2] = brakeRotor;
         stock[3] = satNav;
-
-        return stock;
     }
-    public static StockItem SelectStockItem(StockItem stock, CustomPanel panel) {
-        System.out.println(stock.ToString());
+    public static StockItem ShowStockInformation(StockItem item, CustomFrame frame, CustomPanel panel, String currentError) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        final String[] error = {currentError};
 
         panel.removeAll();
+        panel.setLayout(new GridBagLayout());
 
-        return stock;
-    }
-    public static <T extends StockItem> T DisplayStockInformation(T item) {
-        switch (item) {
-            case BrakeRotor brakeRotor -> { brakeRotor.ToString(); }
-            case Tyre tyre -> { tyre.ToString(); }
-            case Windscreen windscreen -> { windscreen.ToString(); }
-            case null, default -> { item = null; }
-        }
+        final CustomLabel[] errorLabel = {new CustomLabel(currentError)};
+        errorLabel[0].setForeground(Color.YELLOW);
+
+        CustomTextArea infoArea = new CustomTextArea(7, 30);
+        infoArea.setText(item.ToString());
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.gridwidth = 4;
+        gbc.insets = new Insets(97, 0, 10, 0);
+        panel.add(infoArea, gbc);
+
+        CustomTextField quantity = new CustomTextField();
+
+        CustomButton sellButton = new CustomButton(" Sell Stock ");
+        sellButton.addActionListener(e -> {
+            try {
+                error[0] = " ";
+                if (!item.SellStock(Integer.parseInt(quantity.getText()))) error[0] = item.ReturnError();
+                errorLabel[0].setText(error[0]);
+            }
+            catch (NumberFormatException exception) {
+                error[0] = "Number bust be numerical and whole";
+                errorLabel[0].setText(error[0]);
+                item.SellStock(0);
+            }
+            quantity.setText("");
+            // Uses recursion to update the panel after selling stock
+            ShowStockInformation(item, frame, panel, error[0]);
+        });
+
+        CustomButton addButton = new CustomButton(" Add Stock ");
+        addButton.addActionListener(e -> {
+            try {
+                error[0] = " ";
+                if (!item.AddStock(Integer.parseInt(quantity.getText()))) error[0] = item.ReturnError();
+                item.AddStock(Integer.parseInt(quantity.getText()));
+            }
+            catch (NumberFormatException exception) {
+                error[0] = "Number bust be numerical and whole";
+                errorLabel[0].setText(error[0]);
+                item.AddStock(0);
+            }
+            quantity.setText("");
+            // Uses recursion to update the panel after adding stock
+            ShowStockInformation(item, frame, panel, error[0]);
+        });
+
+        // Adding the add button, text field and sell button
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        gbc.insets = new Insets(0, 50, 0, 5);
+        panel.add(sellButton, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        gbc.insets = new Insets(0, 0, 0, 5);
+        panel.add(quantity, gbc);
+
+        gbc.gridx = 3;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        panel.add(addButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridwidth = 4;
+        gbc.weightx = 0;
+        gbc.weighty = 0;
+        gbc.anchor = GridBagConstraints.SOUTH;
+        gbc.insets = new Insets(20, 0, 0, 0);
+        panel.add(errorLabel[0], gbc);
+
+        panel.revalidate();
+        panel.repaint();
+
         return item;
-    }
-    public static void DisplayErrorMessage(CustomFrame frame, String errorMessage) {
-        CustomLabel errorLabel = new CustomLabel(0, frame.getWidth(), errorMessage, frame);
-        frame.add(errorLabel);
     }
     static void main(String[] args) {
         DesignGUI();

@@ -1,7 +1,7 @@
 package CarStockSystem;
 
 public class StockItem {
-    protected String stockCode;
+    protected String stockCode, errorMessage;
     protected int quantityInStock;
     protected double price;
 
@@ -9,6 +9,7 @@ public class StockItem {
         stockCode = Code;
         quantityInStock = Quantity;
         price = Price;
+        errorMessage = "";
     }
 
     public String GetStockName() {
@@ -41,11 +42,11 @@ public class StockItem {
 
     public boolean AddStock(int amount) {
         if (amount < 1) {
-            System.out.println("Quantity must be greater than 0."); // Displayed error msg - show in swing window eventually
+            errorMessage = "Quantity must be greater than 0";
             return false;
         }
         if (quantityInStock + amount > 100) {
-            System.out.println("Stock will exceed the maximum limit of 100 units."); // Displayed error msg - show in swing window eventually
+            errorMessage = "Stock will exceed the maximum limit of 100 units";
             return false;
         }
         quantityInStock += amount;
@@ -53,15 +54,11 @@ public class StockItem {
     }
     public boolean SellStock(int amount) {
         if (amount < 1) {
-            System.out.println("Quantity must be greater than 0."); // Displayed error msg - show in swing window eventually
+            errorMessage = "Quantity must be greater than 0";
             return false;
         }
         if (amount > quantityInStock) {
-            System.out.println("There are not enough items in stock."); // Displayed error msg - show in swing window eventually
-            return false;
-        }
-        if (quantityInStock - amount < 0) {
-            System.out.println("Cannot sell as the total stock will be lower than 0 units."); // Displayed error msg - show in swing window eventually
+            errorMessage = "There are not enough items in stock";
             return false;
         }
         quantityInStock -= amount;
@@ -75,5 +72,9 @@ public class StockItem {
                 + "\nPrice Without VAT: " + GetPrice()
                 + "\nPrice With VAT: " + (GetPrice() + GetPrice() * GetVAT())
                 + "\nTotal unit in stock: " + GetQuantityInStock();
+    }
+
+    public String ReturnError() {
+        return errorMessage;
     }
 }

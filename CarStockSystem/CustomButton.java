@@ -24,8 +24,6 @@ public class CustomButton extends JButton {
 
     private void MakeButton() {
         this.setText(text);
-        this.setFocusable(false);
-        this.setVisible(true);
         this.setFont(new Font("MV Boli", Font.PLAIN, 20));
         this.setForeground(Color.WHITE);
         this.setBackground(new Color(43, 42, 65));
@@ -39,5 +37,8 @@ public class CustomButton extends JButton {
                 CustomButton.this.setBackground(new Color(43, 42, 65));
             }
         });
+
+        this.setFocusable(false);
+        this.setVisible(true);
     }
 }

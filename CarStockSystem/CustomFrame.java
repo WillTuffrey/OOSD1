@@ -12,10 +12,11 @@ public class CustomFrame extends JFrame {
         this.height = Height;
         this.title = Title;
         this.setTitle(title);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
         this.setSize(width, height);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(new Color(83, 81, 122));
+
+        this.setVisible(true);
         this.setResizable(false);
     }
 }

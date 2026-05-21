@@ -22,8 +22,9 @@ public class CustomLabel extends JLabel {
 
     public void MakeLabel() {
         this.setText(text);
-        this.setVisible(true);
         this.setForeground(Color.WHITE);
         this.setFont(new Font("MV Boli", Font.PLAIN, 20));
+
+        this.setVisible(true);
     }
 }
