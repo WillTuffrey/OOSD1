@@ -1,4 +1,4 @@
-package CarStockSystem;
+package Assignment;
 
 import java.util.Scanner;
 

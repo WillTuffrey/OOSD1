@@ -1,4 +1,4 @@
-package CarStockSystem;
+package Assignment;
 
 public class TestNavSys {
     public static void TestNavSysStock() {

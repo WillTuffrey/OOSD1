@@ -1,4 +1,4 @@
-package CarStockSystem;
+package Assignment;
 
 public class Windscreen extends StockItem {
     protected String brand;

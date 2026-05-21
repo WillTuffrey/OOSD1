@@ -1,4 +1,4 @@
-package CarStockSystem;
+package Assignment;
 
 import javax.swing.*;
 import java.awt.*;

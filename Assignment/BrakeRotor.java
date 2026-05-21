@@ -1,4 +1,4 @@
-package CarStockSystem;
+package Assignment;
 
 public class BrakeRotor extends StockItem {
     protected String brand;

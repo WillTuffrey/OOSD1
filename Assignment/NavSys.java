@@ -1,4 +1,4 @@
-package CarStockSystem;
+package Assignment;
 
 public class NavSys extends StockItem {
     public NavSys(String Code, int Quantity, double Price) {

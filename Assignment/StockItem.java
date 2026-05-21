@@ -1,4 +1,4 @@
-package CarStockSystem;
+package Assignment;
 
 public class StockItem {
     protected String stockCode, errorMessage;

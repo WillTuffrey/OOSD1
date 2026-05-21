@@ -1,4 +1,4 @@
-package CarStockSystem;
+package Assignment;
 
 public class Tyre extends StockItem {
     protected String brand, model;
